@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Mate And Code: Desarrollo de software, apps y soluciones digitales en Buenos Aires. Tomá un mate mientras llevamos tu idea a código.">
+  <title>Mate And Code | Desarrollo de Software y Apps</title>
+  <style>
+    :root {
+      --primary: #0d4d3a;
+      --accent: #ffb703;
+      --dark: #1a1a1a;
+      --light: #f8f9fa;
+      --text: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --whatsapp: #25D366;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: #fff;
+      overflow-x: hidden;
+      width: 100%;
+    }
+    
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .logo span {
+      color: var(--accent);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+    
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #166854 100%);
+      color: white;
+      padding: 5rem 5% 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+    
+    .hero::before {
+      content: "🧉";
+      position: absolute;
+      font-size: 15rem;
+      opacity: 0.05;
+      right: -3rem;
+      top: -2rem;
+      transform: rotate(15deg);
+    }
+    
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      color: white;
+    }
+    
+    .hero h1 span {
+      color: var(--accent);
+    }
+    
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.95;
+      color: white;
+      padding: 0 1rem;
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255,183,3,0.3);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border-color: white;
+    }
+    
+    .btn-secondary:hover {
+      background: white;
+      color: var(--primary);
+    }
+    
+    section {
+      padding: 4rem 5%;
+      background: #fff;
+      width: 100%;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+    
+    .card {
+      background: var(--light);
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #e9ecef;
+      transition: all 0.3s;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+    
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    
+    .card p {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    
+    .nosotros {
+      background: var(--light);
+    }
+    
+    .nosotros-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .nosotros-text h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    
+    .nosotros-text p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    
+    .stat-box {
+      background: white;
+      padding: 1.8rem 1rem;
+      border-radius: 12px;
+      text-align: center;
+      border: 2px solid var(--accent);
+    }
+    
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    
+    .stat-label {
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    
+    .cta {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      border-radius: 16px;
+      padding: 3rem 1.5rem;
+      margin: 0 1rem;
+    }
+    
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      margin-bottom: 1rem;
+      color: white;
+    }
+    
+    .cta p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      color: white;
+    }
+    
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 5% 1.5rem;
+      width: 100%;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .footer-brand h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    
+    .footer-brand span {
+      color: var(--accent);
+    }
+    
+    .footer-brand p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+    
+    .footer-links h4 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      line-height: 2;
+      font-size: 0.95rem;
+      word-break: break-word;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 1.5rem;
+      text-align: center;
+      color: #888;
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 0.9rem;
+    }
+    
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 25px;
+      right: 25px;
+      background-color: var(--whatsapp);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 35px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .whatsapp-float:hover {
+      background-color: #20ba5a;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    }
+    
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+    }
+    
+    @media (max-width: 768px) {
+      .nosotros-content, .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .hero {
+        padding: 4rem 5% 3rem;
+      }
+      
+      section {
+        padding: 3rem 5%;
+      }
+      
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+      }
+      
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  </style>
+<style id="lf-tema">html,body{background:#0d1117 !important;color:#e6edf3 !important;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif !important;font-size:16px !important}</style></head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Mate <span>&</span> Code</div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="container">
+      <h1>Tomamos un mate,<br>escribimos <span>tu código</span></h1>
+      <p>Desarrollamos software, apps y sistemas a medida. Desde Buenos Aires para toda Argentina. Ideas claras, código limpio y comunicación directa.</p>
+      <div class="btn-group">
+        <a href="https://wa.me/5491171897214" class="btn btn-primary">Hablemos por WhatsApp</a>
+        <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="container">
+      <h2 class="section-title">Qué hacemos</h2>
+      <p class="section-subtitle">Convertimos tu problema en una solución digital que funciona y escala</p>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">💻</div>
+          <h3>Desarrollo Web</h3>
+          <p>Landing pages, e-commerce, sistemas web y SaaS. Stack moderno: React, Next.js, Node, Python. Responsive y optimizadas.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📱</div>
+          <h3>Apps Android</h3>
+          <p>Aplicaciones nativas e híbridas para Android. Kotlin y Flutter. Te damos soporte y mantenimiento continuo.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚙️</div>
+          <h3>Sistemas a Medida</h3>
+          <p>Automatizá procesos, gestión de stock, CRM, turnos. Integramos Mercado Pago, AFIP, WhatsApp y las APIs que necesites.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h3>IA y Automatización</h3>
+          <p>Bots, integración con ChatGPT, análisis de datos. Hacemos que la IA trabaje para tu negocio y ahorre horas de laburo.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚀</div>
+          <h3>MVP para Startups</h3>
+          <p>Validá tu idea rápido. Diseñamos y desarrollamos tu MVP en semanas, no meses. Listo para buscar inversión.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔧</div>
+          <h3>Soporte y Mantenimiento</h3>
+          <p>No te dejamos solo. Actualizaciones, backups, seguridad y nuevas features. Tu socio tech de largo plazo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nosotros" id="nosotros">
+    <div class="container">
+      <div class="nosotros-content">
+        <div class="nosotros-text">
+          <h2 class="section-title">Código argentino con estándar global</h2>
+          <p>Somos <strong>Mate And Code</strong>, un equipo de devs de Buenos Aires. Creemos que el mejor software nace de entender bien el problema, cebar unos mates y escribir código sin vueltas.</p>
+          <p>Trabajamos directo con vos. Sin intermediarios ni burocracia. </p>
+          <p>¿Nuestra diferencia? Hablamos tu idioma, entendemos el mercado local y aplicamos buenas prácticas internacionales.</p>
+        </div>
+        <div class="stats">
+          <div class="stat-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Código propio</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Soporte post-lanzamiento</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta">
+        <h2>¿Tenés una idea?</h2>
+        <p>Contanos tu proyecto. En 24hs te mandamos una propuesta con tiempos y presupuesto cerrados.</p>
+        <a href="mailto:mateandcodeh@gmail.com" class="btn btn-primary">mateandcodeh@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contacto">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Mate <span>&</span> Code</h3>
+        <p>Desarrollo de software desde Buenos Aires, Argentina. Tomamos mates, escribimos código, resolvemos problemas.</p>
+        <p style="margin-top: 1rem; color: #bbb;">
+          <strong>Tel:</strong> 1171897214<br>
+          <strong>Email:</strong> mateandcodeh@gmail.com
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Desarrollo Web</a></li>
+          <li><a href="#servicios">Apps Android</a></li>
+          <li><a href="#servicios">Sistemas</a></li>
+          <li><a href="#servicios">MVP Startups</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/5491171897214">WhatsApp: 1171897214</a></li>
+          <li><a href="mailto:mateandcodeh@gmail.com">Email: mateandcodeh@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Mate And Code. Hecho con 🧉 y código en Argentina.</p>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp optimizado -->
+  <a href="https://wa.me/5491171897214?text=Hola%20Mate%20And%20Code,%20quiero%20consultar%20por%20un%20proyecto" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" fill="currentColor">
+      <path d=" M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Detecta si es mobile y abre la app directo con whatsapp://
+    document.querySelector('.whatsapp-float').addEventListener('click', function(e) {
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        e.preventDefault();
+        // Intenta abrir la app nativa primero
+        window.location.href = 'whatsapp://send?phone=5491171897214&text=Hola%20Mate%20And%20Code,%20quiero%20consultar%20por%20un%20proyecto';
+        // Fallback a wa.me después de 500ms si no abrió
+        setTimeout(function() {
+          window.location.href = 'https://wa.me/5491171897214?text=Hola%20Mate%20And%20Code,%20quiero%20consultar%20por%20un%20proyecto';
+        }, 500);
+      }
+    });
+  </script>
+
+</body>
+</html>
